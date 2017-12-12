@@ -21,8 +21,8 @@ The info command shows helpful information about most Bash commmands. For a shor
 $ bash --help				# GNU bash, version 4.3.48(1)-release-(x86_64-pc-linux-gnu)</pre>
 **3. sudo** 
 Some commands need to be executed with SuperUser or root authority. If you are not logged in as root user on a Unix/Linux/Apple OSX/etc. machine, use *sudo* followed by the command you want to be executed as root user.
-<pre>$ sudo ifconfig			# SuperUser do this commandName
-$ sudo su				# Sudo, escalate my privledges to SuperUser </pre>
+<pre>$ sudo ifconfig                     # SuperUser do this commandName
+$ sudo su				 # Sudo, escalate my privledges to SuperUser </pre>
 
 ### Local Discovery
 **A. whoami**
