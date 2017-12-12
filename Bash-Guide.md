@@ -27,7 +27,7 @@ $ sudo su				# Sudo, escalate my privledges to SuperUser </pre>
 ### Local Discovery
 **A. whoami**
 One of the first things to do is to find out who you are, what permissions you have and what is your current working directory.
-<pre>$ whoami				# Am I logged in as root or just another user?</pre>
+<pre>$ whoami	                        # Am I logged in as root or just another user?</pre>
  
 **B. pwd**
 Print Working Directory is a simple command that prints your current working directory.
