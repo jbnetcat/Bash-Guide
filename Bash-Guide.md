@@ -22,16 +22,16 @@ $ bash --help				# GNU bash, version 4.3.48(1)-release-(x86_64-pc-linux-gnu)</pr
 **3. sudo** 
 Some commands need to be executed with SuperUser or root authority. If you are not logged in as root user on a Unix/Linux/Apple OSX/etc. machine, use *sudo* followed by the command you want to be executed as root user.
 <pre>$ sudo ifconfig			# SuperUser do this commandName
-$ sudo su				   # Sudo, escalate my privledges to SuperUser </pre>
+$ sudo su				# Sudo, escalate my privledges to SuperUser </pre>
 
 ### Local Discovery
 **A. whoami**
 One of the first things to do is to find out who you are, what permissions you have and what is your current working directory.
-<pre>$ whoami					# Am I logged in as root or just another user?</pre>
+<pre>$ whoami				# Am I logged in as root or just another user?</pre>
  
 **B. pwd**
 Print Working Directory is a simple command that prints your current working directory.
-<pre>$ pwd					    # /home/user/Desktop/Apps</pre>
+<pre>$ pwd			        # /home/user/Desktop/Apps</pre>
 
 **C. ls**
 The LS command is widely used and lists information about files and directories. Defaults to the current directory
@@ -39,5 +39,5 @@ The LS command is widely used and lists information about files and directories.
 
 **C. locate**
 If you are trying to locate a particular file this command works well. It is sometimes necessary to run the *updatedb* command first before using *locate* because updatedb refreshes your machine's file database index.
-<pre>$ updatedb				   # Refresh the built-in file database 
-$ locate foo.bar		  # /home/user/Documents/foo.bar</pre>
+<pre>$ updatedb			       # Refresh the built-in file database 
+$ locate foo.bar		       # /home/user/Documents/foo.bar</pre>
