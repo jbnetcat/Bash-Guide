@@ -13,7 +13,8 @@ bash: /bin/bash /etc/bash.bashrc /usr/share/man/man1/bash.1.gz</pre>
 ### Helpful Commands
 **1. man** <br>
 It is very important to learn how to find help when using terminal commands. Most **.nix**  systems include built-in manual pages to get information about almost any command such as: proper syntax, options, attributes, and even examples of correctly formatted commands.
-<pre>$ man commandName</pre>Man displays the manual page entry for a given command.<br>
+<pre>$ man commandName</pre>
+Man displays the manual page entry for a given command. <br>
 
 **2. info, -h, and --help** <br>
 The info command shows helpful information about most Bash commmands. For a shorter version of the available help pages, try the command name followed by either *-h or --help.*
@@ -58,7 +59,8 @@ $ ASCII text</pre>
 ### Files and Directories
 **1. cd**<br>
 Change directories, from the current working directory to a /new/location.
-<pre>$ cd ../home/user</pre>Changes directory to the (..) parent directory of /home/user
+<pre>$ cd ../home/user</pre>
+Changes directory to the (..) parent directory of /home/user<br>
 
 **2. mkdir**<br>
 Make a new directory.
