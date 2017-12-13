@@ -13,13 +13,14 @@ bash: /bin/bash /etc/bash.bashrc /usr/share/man/man1/bash.1.gz</pre>
 ### Helpful Commands
 **1. man** <br>
 It is very important to learn how to find help when using terminal commands. Most **.nix**  systems include built-in manual pages to get information about almost any command such as: proper syntax, options, attributes, and even examples of correctly formatted commands.
-<pre>$ man commandName</pre>Man displays the manual page entry for a given command
+<pre>$ man commandName</pre>Man displays the manual page entry for a given command.<br>
 
 **2. info, -h, and --help** <br>
 The info command shows helpful information about most Bash commmands. For a shorter version of the available help pages, try the command name followed by either *-h or --help.*
 <pre>$ info commandName</pre>
 
-<pre>$ bash --help </pre> Both *info and --help* show useful command options and syntax.
+<pre>$ bash --help </pre> 
+Both *info and --help* show useful command options and syntax.
 
 **3. sudo** <br>
 Some commands need to be executed with SuperUser or root authority. If you are not logged in as root user on a Unix/Linux/Apple OSX/etc. machine, use *sudo* followed by the command you want to be executed as root user.
@@ -89,7 +90,7 @@ Create an empty file, or change/modify the file's timestamp/Date accessed/Date m
 
 **9. nano**<br>
 Edit an existing file or create a new one with nano, one of the many command line text editors. Nano also performs syntax highlighting when you name a file with a relevant extension. For example: *nano file.php* will create/edit this fileName, and display highlighing for the PHP syntax.
-pre>$ nano /path/to/file/Index.html</pre>
+<pre>$ nano /path/to/file/Index.html</pre>
 ### Common commands and Utilities
 **a. echo**<br>
 fasdfasdfasdf
@@ -105,4 +106,4 @@ fasdfasdfasdf
 <pre></pre>
 **e. grep**<br>
 fasdfasdfasdf
-<pre></pre>
+<pre> </pre>
