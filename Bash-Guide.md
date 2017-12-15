@@ -150,6 +150,7 @@ The tilde represents the home directory. When followed by a (/), or used alone i
 The true power of Bash/Shell commands is realized when you chain multiple commands together. The output of one command becomes the input of another command, for as many commands as you can chain together.
 <p>The following command says: cat display access.log, and pipe the output to cut -d: delimit or separate on tab/blank space, -f: display field 1, pipe that output to grep $this_Ip_addr, then pipe the output to sort, which -u: uniquely sorts the results by -rn: showing the most occurring line in access.log with $thisIP in descending order.</p></li>
 <pre>$ cat access.log | cut -d " " -f 1 | grep '208.68.234.99' | sort -urn</pre>
+
 **$() Expansion, (&&) And, (;) End command**<br>
 The expansion characters allow you to expand parameters, substitute commands or use arithmetic expressions. Two ampersands represent and, which means you can execute more than one command, but be sure to end long statements or multiple commands with (;) character. </li>
 <p>First command uses a bash for statement, to loop through a $(sequence) of numbers, 1-254 to be exact, and do a ping -c: count 1, piping the output to grep to only display alive nodes. This is a quick way for a pentester to check what nodes are alive on this network. The first node pinged is 192.x.x.1</p>
