@@ -143,20 +143,22 @@ $ root</pre>
 
 ## Special Characters 
 These are some of the many special characters that can be used with commands in the Bash terminal/command prompt.
-<ul><li>**~ Tilde**, the tilde represents the home directory. When followed by a /, it means the current user's home directory.</li>
-<li><pre>$ cd ~</pre></li>
-<li>**| Pipe**, the true power of Bash/Shell commands is realized when you chain multiple commands together. The output of one command becomes the input of another command, for as many commands as you can chain together.
+**~ Tilde**<br> 
+The tilde represents the home directory. When followed by a (/), or used alone it means the current user's home directory.
+<pre>$ cd ~</pre>
+**| Pipe**<br>
+The true power of Bash/Shell commands is realized when you chain multiple commands together. The output of one command becomes the input of another command, for as many commands as you can chain together.
 <p>The following command says: cat display access.log, and pipe the output to cut -d: delimit or separate on tab/blank space, -f: display field 1, pipe that output to grep $this_Ip_addr, then pipe the output to sort, which -u: uniquely sorts the results by -rn: showing the most occurring line in access.log with $thisIP in descending order.</p></li>
-<li><pre>$ cat access.log | cut -d " " -f 1 | grep '208.68.234.99' | sort -urn</pre></li>
-<li>**$() Expansion, && And, ; End command**, The expansion characters allow you to expand parameters, substitute commands or use arithmetic expressions. Two ampersands represent and, which means you can execute more than one command, but be sure to end long statements or multiple commands with (;) character. </li>
+<pre>$ cat access.log | cut -d " " -f 1 | grep '208.68.234.99' | sort -urn</pre>
+**$() Expansion, (&&) And, (;) End command**<br>
+The expansion characters allow you to expand parameters, substitute commands or use arithmetic expressions. Two ampersands represent and, which means you can execute more than one command, but be sure to end long statements or multiple commands with (;) character. </li>
 <p>First command uses a bash for statement, to loop through a $(sequence) of numbers, 1-254 to be exact, and do a ping -c: count 1, piping the output to grep to only display alive nodes. This is a quick way for a pentester to check what nodes are alive on this network. The first node pinged is 192.x.x.1</p>
-<li><pre>$ for ip in $(seq 1 254); do 
-\#only prints live hosts as evidenced in the 'bytes from' received from the host.
+<pre>$ for ip in $(seq 1 254); do 
+# only prints live hosts as evidenced in the 'bytes from' received from the host.
 ping -c 1 192.168.42.$ip | grep "bytes from"
-done;</pre> </li>
-<li><pre>$ sudo apt update && apt list --upgradable -v && sudo apt upgrade;</pre></li>
+done;</pre>
+<pre>$ sudo apt update && apt list --upgradable -v && sudo apt upgrade;</pre>
 This is self explanatory, it says: sudo check repos for updates and list all upgradeable packages -v: verbosely, tell me something, and then perform the upgrade sudo.
-</ul>
 **1. host**<br>
 Make a new directory.
 <pre>$ mkdir /var/www/html/NewWebsite</pre>
