@@ -160,9 +160,10 @@ ping -c 1 192.168.42.$ip | grep "bytes from"
 done;</pre>
 <pre>$ sudo apt update && apt list --upgradable -v && sudo apt upgrade;</pre>
 This is self explanatory, it says: sudo check repos for updates and list all upgradeable packages -v: verbosely, tell me something, and then perform the upgrade sudo.
-**1. host**<br>
+
+** 1. host **<br>
 Make a new directory.
 <pre>$ mkdir /var/www/html/NewWebsite</pre>
-**2. dig**<br>
+ **2. dig** <br>
 Dig for DNS records.
 <pre>$ dig www.NewWebsite.com</pre>
