@@ -14,6 +14,7 @@ bash: /bin/bash /etc/bash.bashrc /usr/share/man/man1/bash.1.gz</pre>
 **1. man** <br>
 It is very important to learn how to find help when using terminal commands. Most **.nix**  systems include built-in manual pages to get information about almost any command such as: proper syntax, options, attributes, and even examples of correctly formatted commands.
 <pre>$ man commandName</pre>
+<pre>$ man man</pre>
 Man displays the manual page entry for a given command.<br>
 
 **2. info, -h, and --help** <br>
@@ -141,29 +142,68 @@ If you want to run any previous command, just use: !#number
 $ root</pre>
 ### Networking Commands and Special Characters.
 
-## Special Characters 
+## Special Characters
 These are some of the many special characters that can be used with commands in the Bash terminal/command prompt.
-**~ Tilde**<br> 
+**~ Tilde**<br>
 The tilde represents the home directory. When followed by a (/), or used alone it means the current user's home directory.
 <pre>$ cd ~</pre>
 **| Pipe**<br>
 The true power of Bash/Shell commands is realized when you chain multiple commands together. The output of one command becomes the input of another command, for as many commands as you can chain together.
-<p>The following command says: cat display access.log, and pipe the output to cut -d: delimit or separate on tab/blank space, -f: display field 1, pipe that output to grep $this_Ip_addr, then pipe the output to sort, which -u: uniquely sorts the results by -rn: showing the most occurring line in access.log with $thisIP in descending order.</p></li>
+<p>The following command says: cat display access.log, and pipe the output to cut -d: delimit or separate on tab/blank space, -f: display field 1, pipe that output to grep $this_Ip_addr, then pipe the output to sort, which -u: uniquely sorts the results by -rn: showing the most occurring line in access.log with $thisIP in descending order.</p>
 <pre>$ cat access.log | cut -d " " -f 1 | grep '208.68.234.99' | sort -urn</pre>
 
-**$() Expansion, (&&) And, (;) End command**<br>
-The expansion characters allow you to expand parameters, substitute commands or use arithmetic expressions. Two ampersands represent and, which means you can execute more than one command, but be sure to end long statements or multiple commands with (;) character. </li>
-<p>First command uses a bash for statement, to loop through a $(sequence) of numbers, 1-254 to be exact, and do a ping -c: count 1, piping the output to grep to only display alive nodes. This is a quick way for a pentester to check what nodes are alive on this network. The first node pinged is 192.x.x.1</p>
-<pre>$ for ip in $(seq 1 254); do 
+**$() Expansion, (&&) And, (;) End command, (#) Comment**<br>
+The expansion characters allow you to expand parameters, substitute commands or use arithmetic expressions. Two ampersands represent and, which means you can execute more than one command, but be sure to end long statements or multiple commands with (;) semi-colon. Finally, the (#) hash tag is used for a line of comments, this line is ignored by the bash interpreter.<br>
+The First command uses a bash for statement, to loop through a $(sequence) of numbers, 1-254 to be exact, and do a ping -c: count 1, piping the output to grep to only display alive nodes. This is a quick way for a pentester to check what nodes are alive on this network. The first node pinged is 192.x.x.1.
+<pre>$ for ip in $(seq 1 254); do
 # only prints live hosts as evidenced in the 'bytes from' received from the host.
 ping -c 1 192.168.42.$ip | grep "bytes from"
 done;</pre>
-<pre>$ sudo apt update && apt list --upgradable -v && sudo apt upgrade;</pre>
-This is self explanatory, it says: sudo check repos for updates and list all upgradeable packages -v: verbosely, tell me something, and then perform the upgrade sudo.
+<pre>$ sudo apt update && apt list --upgradable -va && sudo apt upgrade;</pre>
+This is self explanatory, it says: sudo do aptitude check my repo(s) in: /etc/apt/sources.list for updates, next list all upgradeable packages -v: verbosely, tell me something, while -a: listing all package versions, then perform the upgrade as sudo.
 
-** 1. host **<br>
-Make a new directory.
-<pre>$ mkdir /var/www/html/NewWebsite</pre>
+**1. host** <br>
+DNS lookup utility. Options: -t: querytype, -l: zone transfer by listing all known hosts in domain. The first command performs forward lookup. Second command does reverse lookup and restricts the -t: Query-type, to ns: Name Server records.
+<pre>$host www.cisco.com</pre>
+<pre>$ host -t ns 22.23.144.81 </pre>
  **2. dig** <br>
-Dig for DNS records.
-<pre>$ dig www.NewWebsite.com</pre>
+Dig for Domain Name Server records. Can also use batch mode to read lookups from a file. Without any options Dig performs a forward lookup, and by default returning IPV4 records.
+<pre>$ dig hackthissite.org</pre>
+ **3. whois** <br>
+Whois is a client for the whois directory service. Options: -h: host connect to, -p: port connect to
+<pre>$ whois www.usf.edu</pre>
+ **4. tcpdump** <br>
+A command line alternative to wireshark, tcpdump dumps traffic on a wire. This command says tcpdump -i: interface named wlan0, and -e: print the link-level header/MAC layer address, and the 802.11 wireless protocol information.
+<pre>$  tcpdump -ie wlan0</pre>
+**5. ifconfig && iwconfig** <br>
+oIfconfig is an interface management and configuration utility, It can be used to bring an interface up, set interface metrics, set a network address and other things. Iwconfig is similar, only it is used to set wireless network interfaces.
+<pre>$ ifconfig</pre>
+<pre>$ iwconfig wlan0 down</pre>
+**6. ifup && ifdown** <br>
+Bring a network interface up or bring it down. Run the commands with -h or --help for more info on options. The first command brings iface name: eth0 down if it is up, and then brings it up, this is equivalent to a restart of the network iface. The second command brings down several network interfaces at once.
+<pre>$ ifdown eth0 && ifup eth0</pre>
+<pre>$ ifdown eth0 eth1 eth2</pre>
+**7. ping** <br>
+Ping is a well known networking utility used to send Icmp echo requests to Network nodes to test connectivity. Options: -c: count, number of pings, -t: ttl time to live -s: packet-size -4/6: IPV.
+<pre>$ ping 192.168.1.2 -c 4</pre>
+**8. arping** <br>
+Arping is used to send ARP requests to local Network hosts. ARP requests attempt to match OSI level 3 Network/IP addresses with level 2 MAC addresses. 
+<pre>$ arping -i eth1 192.168.2.300</pre>
+**9. nc** <br>
+Netcat is known as the TCP/IP Swiss army knife. Among other things, its mainly used to read/write data across network connections. Nc can act as client or server, listening for a connection or making one and also is a handy port-scanner as well. The first command says: netcat connect to this $IP.Addr -v: verbosely, -n: no DNS queries please, - w: number of seconds timeout for connects -z: zero input/output mode, means don't try to connect just check if the port is open, scan ports 1-50000.
+<pre>$ nc -vn -w 2 192.168.1.5 -z 1-50000</pre>
+<pre>$ nc -nlvp 4444 </pre>
+Netcat, set listener on local port 4444. -n: No DNS, -v: be verbose, and -l: listen for incoming connections.
+**10. nmap** <br>
+The network mapper is a Port Scanner, Network exploration tool, and Active! Not passive scanner, which means nmap scans generate lots traffic so beware!
+<pre>$ nmap -A -T4 scanme.nmap.org</pre>
+<pre>$ nmap -sn -v -n 10.10.33.1-254 </pre>
+**11. dhclient** <br>
+DHCP configuration is handled by dhclient on Linux/Unix machines. View Ip address leases, release and renew IPv4/IPv6. To see dhclient conversation with the dhcp server just try: -v verbose. Other options: -r: release IP addy, -4: renew IPv4 address.
+<pre>$ dhclient -v</pre>
+**12. nmcli** <br>
+The network manager command line utility can be used to show network information. Here we tell it to show network devices, and pipe the output to grep any line containing the word DNS in it, which is equivalent to the IP address of your DNS server.
+<pre>$ nmcli dev show | grep DNS</pre>
+**13. netstat** <br>
+Networking statistics, prints network connections, routing tables, masquerade connections, iface stats, etc. Options: -a: all, -n: show numerical addresses, -t: tcp connections, p: show the PID and name of the program to which each socket belongs.
+<pre>$ netstat -antp</pre>
