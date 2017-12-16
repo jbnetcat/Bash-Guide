@@ -196,9 +196,10 @@ Netcat is known as the TCP/IP Swiss army knife. Among other things, its mainly u
 Netcat, set listener on local port 4444. -n: No DNS, -v: be verbose, and -l: listen for incoming connections.
 
 **10. nmap** <br>
-The network mapper is a Port Scanner, Network exploration tool, and Active! Not passive scanner, which means nmap scans generate lots traffic so beware!
+The network mapper is a Port Scanner, Network exploration tool, and active, not passive scanner. Which means nmap scans generate lots traffic so let the pentester beware. You should only run nmap on a machine you own or with the permission of its owner. The first command runs an -A: aggressive scan of the test domain which includes many types of scans such as OS/version detection, additional nmap scripts and traceroute for network hops of each node to name a few. The scan is to be conducted as quickly as possible -T4: fast timing.
 <pre>$ nmap -A -T4 scanme.nmap.org</pre>
 <pre>$ nmap -sn -v -n 10.10.33.1-254 </pre>
+This command tells nmap to perform a ping scan on a range of hosts (10.10.31.1-254), do not perform a Domain Name query of the hosts -n:no DNS, and be -v:verbose about it.
 **11. dhclient** <br>
 DHCP configuration is handled by dhclient on Linux/Unix machines. View Ip address leases, release and renew IPv4/IPv6. To see dhclient conversation with the dhcp server just try: -v verbose. Other options: -r: release IP addy, -4: renew IPv4 address.
 <pre>$ dhclient -v</pre>
@@ -208,3 +209,5 @@ The network manager command line utility can be used to show network information
 **13. netstat** <br>
 Networking statistics, prints network connections, routing tables, masquerade connections, iface stats, etc. Options: -a: all, -n: show numerical addresses, -t: tcp connections, p: show the PID and name of the program to which each socket belongs.
 <pre>$ netstat -antp</pre>
+
+This guide is a work in progress and is in no way complete. The commands here are only the very tip of the iceberg when it comes to the *Bash* terminal's capabilities. More commands to come as this guide continues to be updated.
