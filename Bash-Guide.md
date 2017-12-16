@@ -176,11 +176,11 @@ Whois is a client for the whois directory service. Options: -h: host connect to,
 A command line alternative to wireshark, tcpdump dumps traffic on a wire. This command says tcpdump -i: interface named wlan0, and -e: print the link-level header/MAC layer address, and the 802.11 wireless protocol information.
 <pre>$  tcpdump -ie wlan0</pre>
 **5. ifconfig && iwconfig** <br>
-oIfconfig is an interface management and configuration utility, It can be used to bring an interface up, set interface metrics, set a network address and other things. Iwconfig is similar, only it is used to set wireless network interfaces.
+Ifconfig is an interface management and configuration utility, It can be used to bring an interface up, set interface metrics, set a network address and other things. Iwconfig is similar, only it is used to set wireless network interfaces.
 <pre>$ ifconfig</pre>
 <pre>$ iwconfig wlan0 down</pre>
 **6. ifup && ifdown** <br>
-Bring a network interface up or bring it down. Run the commands with -h or --help for more info on options. The first command brings iface name: eth0 down if it is up, and then brings it up, this is equivalent to a restart of the network iface. The second command brings down several network interfaces at once.
+Bring a network interface up or bring it down. Run the commands with -h or --help for more info on options. The first command brings the iface named: eth0 down if it is up, and then brings it up, this is equivalent to a restart of the network iface. The second command brings down several network interfaces at once.
 <pre>$ ifdown eth0 && ifup eth0</pre>
 <pre>$ ifdown eth0 eth1 eth2</pre>
 **7. ping** <br>
@@ -194,6 +194,7 @@ Netcat is known as the TCP/IP Swiss army knife. Among other things, its mainly u
 <pre>$ nc -vn -w 2 192.168.1.5 -z 1-50000</pre>
 <pre>$ nc -nlvp 4444 </pre>
 Netcat, set listener on local port 4444. -n: No DNS, -v: be verbose, and -l: listen for incoming connections.
+
 **10. nmap** <br>
 The network mapper is a Port Scanner, Network exploration tool, and Active! Not passive scanner, which means nmap scans generate lots traffic so beware!
 <pre>$ nmap -A -T4 scanme.nmap.org</pre>
