@@ -200,14 +200,18 @@ The network mapper is a Port Scanner, Network exploration tool, and active, not 
 <pre>$ nmap -A -T4 scanme.nmap.org</pre>
 <pre>$ nmap -sn -v -n 10.10.33.1-254 </pre>
 This command tells nmap to perform a ping scan on a range of hosts (10.10.31.1-254), do not perform a Domain Name query of the hosts -n:no DNS, and be -v:verbose about it.
+
 **11. dhclient** <br>
-DHCP configuration is handled by dhclient on Linux/Unix machines. View Ip address leases, release and renew IPv4/IPv6. To see dhclient conversation with the dhcp server just try: -v verbose. Other options: -r: release IP addy, -4: renew IPv4 address.
+DHCP configuration is handled by dhclient on Linux/Unix machines. It can be used to view your IP address lease(s), and also to release or renew IPv4/IPv6 addresses. To see the dhclient conversation with the dhcp server just try: -v verbose. Other options: -r: release IP addy, -4: renew IPv4 address.
 <pre>$ dhclient -v</pre>
 **12. nmcli** <br>
-The network manager command line utility can be used to show network information. Here we tell it to show network devices, and pipe the output to grep any line containing the word DNS in it, which is equivalent to the IP address of your DNS server.
+The network manager command line utility can be used to show networking information. Here we tell it to show network devices, and pipe the output to grep any line containing the word DNS in it, which is equivalent to the IP address of your DNS server.
 <pre>$ nmcli dev show | grep DNS</pre>
 **13. netstat** <br>
 Networking statistics, prints network connections, routing tables, masquerade connections, iface stats, etc. Options: -a: all, -n: show numerical addresses, -t: tcp connections, p: show the PID and name of the program to which each socket belongs.
 <pre>$ netstat -antp</pre>
+**14. ufw** <br>
+Ubuntu's default firewall config tool is ufw: uncomplicated firewall. It is disabled by default and was developed to ease iptables firewall configuration. To turn UFW on with the default set of rules:
+<pre>$ sudo ufw enable</pre>
 
 This guide is a work in progress and is in no way complete. The commands here are only the very tip of the iceberg when it comes to the *Bash* terminal's capabilities. More commands to come as this guide continues to be updated.
