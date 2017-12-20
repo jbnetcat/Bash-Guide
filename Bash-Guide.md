@@ -4,11 +4,11 @@ The acronym **BASH** stands for: *Bourne Again Shell,* which is a *command inter
 ### Quick Guide References
 <table>
 <tr><th colspan="5">Helpful Commands</th></tr>
-<tr><td>[whatis](#whatis)</td>
-<td>[whereis](#whereis)</td>
-<td>[man](#man)</td>
-<td>[info/help](#info)</td>
-<td>[sudo](#sudo)</td></tr> </table>
+<tr><td><a href="#whatis">whatis</a></td>
+<td><a href="#whereis">whereis</a></td>
+<td><a href="#man">man</a></td>
+<td><a href="#info">info/help</a></td>
+<td><a href="#sudo">sudo</a></td></tr> </table>
 <!--td>[whoami](#whoami)<br>
 <td>[pwd](#pwd)<br>
 <td>[ls](#ls)</td>
@@ -21,7 +21,8 @@ The acronym **BASH** stands for: *Bourne Again Shell,* which is a *command inter
 [help](#help)<br>
 [help](#help)<br>
 [help](#help)<br>
-Many Bash commands are intuitive, for example you could fire up a terminal and ask: **<a id="whatis">whatis</a>**
+
+Many Bash commands are intuitive, for example you could fire up a terminal and ask: ** <a id="whatis">whatis</a>**
 	<pre>$ whatis bash <br>bash (1)    - GNU Bourne-Again SHell</pre>
 
 To locate source files, man pages and executables use this command: **<a id="whereis">whereis</a>**
