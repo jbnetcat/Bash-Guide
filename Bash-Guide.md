@@ -1,14 +1,19 @@
 ﻿### Introduction
 The acronym **BASH** stands for: *Bourne Again Shell,* which is a *command interpreter* based on its predecessor, the *Bourne* shell.  This environment allows you to interact with your OS via commands, and normally runs inside your terminal, but you can also run a Bash/Shell script as a standalone executable. This guide covers some very useful Bash commands for WhiteHatters.
 
+### Quick References
+[whatis](#whatis)
+[whereis](#whereis)
+
+**whatis** <a id="whatis"></a>
 Many Bash commands are intuitive, for example you could fire up a terminal and ask:
 	<pre>$ whatis bash <br>bash (1)    - GNU Bourne-Again SHell</pre>
-To locate source files, man pages and executables:
 
+To locate source files, man pages and executables use this command:
+**whereis** <a id="whereis"></a>
 <pre>$ whereis bash
 bash: /bin/bash /etc/bash.bashrc /usr/share/man/man1/bash.1.gz</pre>
-
-
+<br>
 
 ### Helpful Commands
 **1. man** <br>
@@ -29,7 +34,7 @@ Some commands need to be executed with SuperUser or root authority. If you are n
 <pre>$ sudo ifconfig</pre>
 
 SuperUser do this commandName
-<pre>$ sudo su</pre> Sudo, escalate my privledges to SuperUser
+<pre>$ sudo su</pre> Sudo switch user, escalate my privileges to SuperUser.
 ### Local Discovery
 **A. whoami**<br>
 One of the first things to do is to find out who you are, what permissions you have and what is your current working directory.  Am I logged in as root or just another user?</pre>
