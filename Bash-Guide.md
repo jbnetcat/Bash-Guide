@@ -1,16 +1,19 @@
 ﻿### Introduction
 The acronym **BASH** stands for: *Bourne Again Shell,* which is a *command interpreter* based on its predecessor, the *Bourne* shell.  This environment allows you to interact with your OS via commands, and normally runs inside your terminal, but you can also run a Bash/Shell script as a standalone executable. This guide covers some very useful Bash commands for WhiteHatters.
 
-### Quick References
-[whatis](#whatis)<br>
-[whereis](#whereis)<br>
-[man](#man)<br>
-[info/help](#info)<br>
-[sudo](#sudo)<br>
-[whoami](#whoami)<br>
-[pwd](#pwd)<br>
-[ls](#ls)<br>
-[locate](#locate)<br>
+### Quick Guide References
+<table>
+<tr><th colspan="5">Helpful Commands</th></tr>
+<tr><td>[whatis](#whatis)</td>
+<td>[whereis](#whereis)</td>
+<td>[man](#man)</td>
+<td>[info/help](#info)</td>
+<td>[sudo](#sudo)</td></tr> </table>
+<!--td>[whoami](#whoami)<br>
+<td>[pwd](#pwd)<br>
+<td>[ls](#ls)</td>
+<td>[locate](#locate)</td></tr>
+</table -->
 [file](#file)<br>
 [help](#help)<br>
 [help](#help)<br>
