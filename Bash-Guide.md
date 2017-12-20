@@ -4,24 +4,36 @@ The acronym **BASH** stands for: *Bourne Again Shell,* which is a *command inter
 ### Quick References
 [whatis](#whatis)<br>
 [whereis](#whereis)<br>
+[man](#man)<br>
+[info/help](#info)<br>
 [sudo](#sudo)<br>
-
-Many Bash commands are intuitive, for example you could fire up a terminal and ask: **whatis** <a id="whatis"></a>
+[whoami](#whoami)<br>
+[pwd](#pwd)<br>
+[ls](#ls)<br>
+[locate](#locate)<br>
+[file](#file)<br>
+[help](#help)<br>
+[help](#help)<br>
+[help](#help)<br>
+[help](#help)<br>
+[help](#help)<br>
+[help](#help)<br>
+Many Bash commands are intuitive, for example you could fire up a terminal and ask: **<a id="whatis">whatis</a>**
 	<pre>$ whatis bash <br>bash (1)    - GNU Bourne-Again SHell</pre>
 
-To locate source files, man pages and executables use this command: **whereis** <a id="whereis"></a>
+To locate source files, man pages and executables use this command: **<a id="whereis">whereis</a>**
 <pre>$ whereis bash
 bash: /bin/bash /etc/bash.bashrc /usr/share/man/man1/bash.1.gz</pre>
 <br>
 
 ### Helpful Commands
-**1. man** <br>
+**1. <a id="man">man</a>** <br>
 It is very important to learn how to find help when using terminal commands. Most **.nix**  systems include built-in manual pages to get information about almost any command such as: proper syntax, options, attributes, and even examples of correctly formatted commands.
 <pre>$ man commandName</pre>
 <pre>$ man man</pre>
 Man displays the manual page entry for a given command.<br>
 
-**2. info, -h, and --help** <br>
+**2. <a id="info">info,</a> -h, and --help** <br>
 The info command shows helpful information about most Bash commands. For a shorter version of the available help pages, try the command name followed by either *-h or --help.*
 <pre>$ info commandName</pre>
 
@@ -35,28 +47,28 @@ Some commands need to be executed with SuperUser or root authority. If you are n
 SuperUser do this commandName
 <pre>$ sudo su</pre> Sudo switch user, escalate my privileges to SuperUser.
 ### Local Discovery
-**A. whoami**<br>
+**A. <a id="whoami">whoami</a>**<br>
 One of the first things to do is to find out who you are, what permissions you have and what is your current working directory.  Am I logged in as root or just another user?</pre>
 <pre>$ whoami</pre>
 
-**B. pwd**<br>
+**B. <a id="pwd">pwd</a>**<br>
 Print Working Directory is a simple command that prints your current working directory. This is how you find out where you are in a Linux/Unix file structure.
 <pre>$ pwd
 $ /home/user/Desktop/Apps</pre>
 
-**C. ls**<br>
+**C. <a id="ls">ls</a>**<br>
 The LS command is widely used and lists information about files and directories. Defaults to the current directory.
 <pre>$ ls -lia /home/user</pre>
 List -a: all, including hidden files/dirs in -l: long list format, -i: include the Inode index
 
-**D. locate**<br>
+**D. <a id="locate">locate</a>**<br>
 If you are trying to locate a particular file this command works well. It is sometimes necessary to run the *updatedb* command first before using *locate* because updatedb refreshes your machine's file database index.
 <pre>$ updatedb</pre>
 
 <pre>$ locate foo.bar
 $ /home/user/Documents/foo.bar</pre>
 
-**E. file**<br>
+**E. <a id="file">file</a>**<br>
 In **.nix** environments, file extensions don't tell us much about what kind of file we're dealing with. For instance you could name a file: myfile.mine and make it executable by setting the file's executable bit: *Chmod u+x fileName.* However, you can use *file* followed by the file name to discover the file's type.
 <pre>$ file foo.bar
 $ ASCII text</pre>
