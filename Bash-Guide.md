@@ -8,21 +8,43 @@ The acronym **BASH** stands for: *Bourne Again Shell,* which is a *command inter
 <td><a href="#whereis">whereis</a></td>
 <td><a href="#man">man</a></td>
 <td><a href="#info">info/help</a></td>
-<td><a href="#sudo">sudo</a></td></tr> </table>
-<!--td>[whoami](#whoami)<br>
-<td>[pwd](#pwd)<br>
-<td>[ls](#ls)</td>
-<td>[locate](#locate)</td></tr>
-</table -->
-[file](#file)<br>
-[help](#help)<br>
-[help](#help)<br>
-[help](#help)<br>
-[help](#help)<br>
-[help](#help)<br>
-[help](#help)<br>
+<td><a href="#sudo">sudo</a></td></tr> 
+<table>
+<tr><th colspan="5">Local Discovery</th></tr>
+<tr><td><a href="#whoami">whoami</a></td>
+<td><a href="#pwd">pwd</a></td>
+<td><a href="#ls">ls</a></td>
+<td><a href="#locate">locate</a></td>
+<td><a href="#file">file</a></td></tr>
+</table>
+<table>
+<tr><th colspan="4">Files and Directories</th></tr>
+<tr><td><a href="#cd">cd</a></td>
+<td><a href="#mkdir">mkdir</a></td>
+<td><a href="#rmdir">rmdir</a></td>
+<td><a href="#rm">rm</a></td></tr>
+<tr><td><a href="#shred">shred</a></td>
+<td><a href="#mv">mv</a></td>
+<td><a href="#cp">cp</a></td>
+<td><a href="#touch">touch</a></td></tr>
+<tr><td><a href="#nano">nano</a></td>
+<td><a href="#head">head</a></td>
+<td><a href="#tail">tail</a></td></tr>
+</table>
+<table>
+<tr><th colspan="3">Utilities & Programs</th></tr>
+<tr><td><a href="#echo">echo</a></td>
+<td><a href="#md5sum">md5sum</a></td>
+<td><a href="#sha1sum">sha1sum</a></td></tr>
+<tr><td><a href="#cat">cat</a></td>
+<td><a href="#chmod">chmod</a></td>
+<td><a href="#wget">wget</a></td></tr>
+<tr><td><a href="#rsync">rsync</a></td>
+<td><a href="#xxd">xxd</a></td>
+<td><a href="#history">history</a></td></tr>
+</table>
 
-Many Bash commands are intuitive, for example you could fire up a terminal and ask: ** <a id="whatis">whatis</a>**
+Many Bash commands are intuitive, for example you could fire up a terminal and ask: **<a id="whatis">whatis</a>**
 	<pre>$ whatis bash <br>bash (1)    - GNU Bourne-Again SHell</pre>
 
 To locate source files, man pages and executables use this command: **<a id="whereis">whereis</a>**
@@ -78,79 +100,79 @@ In **.nix** environments, file extensions don't tell us much about what kind of 
 $ ASCII text</pre>
 
 ### Files and Directories
-**1. cd**<br>
+**1. <a id="cd">cd</a>**<br>
 Change directories, from the current working directory to a /new/location.
 <pre>$ cd ../home/user</pre>
 Changes directory to the (..) parent directory of /home/user<br>
 
-**2. mkdir**<br>
+**2. <a id="mkdir">mkdir</a>**<br>
 Make a new directory.
 <pre>$ mkdir /var/www/html/NewWebsite</pre>
 
-**3. rmdir**<br>
+**3. <a id="rmdir">rmdir</a>**<br>
 Remove a directory. Note: a directory must be empty before deleting it, unless you use additional parameters with *rmdir* to delete a dir and its subdirectories forcefully.
 <pre>$ rmdir /var/www/html/OldWebsite</pre>
 
-**4. rm**<br>
+**4. <a id="rm">rm</a>**<br>
 Remove or delete files and directories. Options include: -f: force, don't prompt me. -r: recursive, delete directories and their contents recursively.
 <pre>$ rm -rf Deleteme/</pre>
 
-**5. shred**<br>
+**5. <a id="shred">shred</a>**<br>
 Note that if you use rm to remove a file, it might be possible to recover some of its contents, given sufficient expertise and/or time. For greater assurance that the contents are truly unrecoverable, consider using shred. Options include: -u: truncate and remove file after overwriting. -v: verbose, show progress. -z: add a final overwrite with zeros to hide shredding
 <pre>$ shred -vzu /home/myTop/Secret/File.txt</pre>
 
-**6. mv**<br>
+**6. <a id="mv">mv</a>**<br>
 Move a file from location A to location B and/or rename it.
 <pre>$ mv /home/user/mydoc.php /home/user/Anotherdoc.php</pre>
 
-**7. cp**<br>
+**7. <a id="cp">cp</a>**<br>
 Copy a file to a new location, but the old file remains by default.
 <pre>$ cp myfile_Name.docx /home/usr/path/NewName.docx</pre>
 
-**8. touch**<br>
+**8. <a id="touch">touch</a>**<br>
 Create an empty file, or modify the file's time-stamp, Date accessed, & Date modified.
 <pre>$ touch file_1.sh</pre>
 
-**9. nano**<br>
+**9. <a id="nano">nano</a>**<br>
 Edit an existing file or create a new one if it doesn’t exist with nano, one of the many command line text editors. Nano also performs syntax highlighting when you name a file with a relevant extension. For example: *nano file.php* will create/edit this file.php, in the local directory and display highlighting for the PHP syntax.
 <pre>$ nano /path/to/file/Index.html</pre>
-**10. head**<br>
+**10. <a id="head">head</a>**<br>
 The opposite of tail, use to display the head of a file.
 <pre>$ head access.log</pre>
-**11. tail**<br>
+**11. <a id="tail">tail</a>**<br>
 The opposite of head, displays the tail end of a file.
 <pre>$ tail access.log</pre>
 ### Utilities & Programs
-**a. echo**<br>
+**a. <a id="echo">echo</a>**<br>
 Used in many programming languages, *echo* displays a line of text to *stndout*. However you can use special parameters like: > to print to a file and overwrite it if it already exists. Also: >> which means append output to a file, or: < which is used for output redirection, some call it input. Other options: -e: enable interpretation of backslash escapes:\f: form feed, \n: new line \r: carriage Return. The following command appends a string to the end of list.txt with a new line in between.
 <pre>$ echo -e "this line\n of text" >> list.txt</pre>
-**b. md5sum**<br>
+**b. <a id="md5sum">md5sum</a>**<br>
 The program md5sum is designed to verify data integrity using the MD5 (Message-Digest Algorithm 5) 128-bit cryptographic hash. MD5 hashes used properly can confirm both file integrity and authenticity. When you download any file or application, always run a strong hashing function to be sure the file has not been tampered with.
 <pre>$ md5sum ubuntu-16.04.2-server-amd64.iso</pre>
-**c. sha1sum**<br>
+**c. <a id="sha1sum">sha1sum</a>**<br>
 The sha1sum utility is also used to verify file integrity, using an Algorithm that produces the sha1checksum (hash value: fingerprint) of a file. The Hash is printed to *stdnout*, which in our case is the terminal screen.
 <pre>$ sha1sum backdoor.elf</pre>
-**d. cat**<br>
+**d. <a id="cat">cat</a>**<br>
 CAT is an acronym for concatenate. It combines: concatenates, files or prints text and files to the standard output. The first command concatenates two files and outputs the results to a third file. The second command simply displays the contents of the file to *stndout*.
 <pre>$ cat file_1 file_2 > Combined_File_3</pre>
 <pre>$ cat nally.txt</pre>
 <pre>$ cat ./-weird_Office-file_name(2).docx.docx</pre>
 Display a file with a dash in the name with (./)
 
-**e. chmod** <br>
+**e. <a id="chmod">chmod</a>** <br>
 Change mode allows you to change file mode bits. In **.nix** environments, file and folder permissions are displayed with the ls command, beginning with: Directory/Link: 1 bit, followed by: user/group/owner with 3 bits each: (-DUUUGGGOOO) The: + operator adds selected file mode bits, and: - removes them. So to give the current user and group execute permissions on a file try this first command. The second command shows how to execute the file with (./).
 <pre>$ chmod ug+x Endless_ping_loop.sh</pre>
 <pre>$ ./Endless_ping_loop.sh</pre>
-**f. wget**<br>
+**f. <a id="wget">wget</a>**<br>
 This neat tool is known as the non-interactive network downloader. And it does just that, this command downloads a file from a remote server.
 <pre>$ wget http://192.168.53.4/files/Reverse_Tcp-shell.elf</pre>
-**g. rsync**<br>
+**g. <a id="rsync">rsync</a>**<br>
 Used to backup and copy files based on changes in them. At some point, current technologies like Dropbox and others use utilities similar to rsync in order to keep your data synchronized with what's in the cloud. Rsync can also backup over the network using ssh. Read MAN page! Local backup: -a: archive, -z: compress data during transfer, -v: increase verbosity
 <pre>$ rsync -azv /path/folder1/macs.db /path/folder2/macs_copy.db</pre>
-**h. xxd**<br>
+**h. <a id="xxd">xxd</a>**<br>
 Make a hexdump or do the reverse. This simple command uses -r: reverse, to convert a hexadecimal file to binary format.
 <pre>$ xxd -r  original.hex reverse.bin</pre>
-**i. history**<br>
+**i. <a id="history">history</a>**<br>
 This simple command shows a numbered list of the previous commands you have entered since you last erased your Bash history.
 <pre>$ history</pre>
 <pre>1 ls -ali
