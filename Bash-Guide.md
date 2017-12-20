@@ -2,15 +2,14 @@
 The acronym **BASH** stands for: *Bourne Again Shell,* which is a *command interpreter* based on its predecessor, the *Bourne* shell.  This environment allows you to interact with your OS via commands, and normally runs inside your terminal, but you can also run a Bash/Shell script as a standalone executable. This guide covers some very useful Bash commands for WhiteHatters.
 
 ### Quick References
-[whatis](#whatis)
-[whereis](#whereis)
+[whatis](#whatis)<br>
+[whereis](#whereis)<br>
+[sudo](#sudo)<br>
 
-**whatis** <a id="whatis"></a>
-Many Bash commands are intuitive, for example you could fire up a terminal and ask:
+Many Bash commands are intuitive, for example you could fire up a terminal and ask: **whatis** <a id="whatis"></a>
 	<pre>$ whatis bash <br>bash (1)    - GNU Bourne-Again SHell</pre>
 
-To locate source files, man pages and executables use this command:
-**whereis** <a id="whereis"></a>
+To locate source files, man pages and executables use this command: **whereis** <a id="whereis"></a>
 <pre>$ whereis bash
 bash: /bin/bash /etc/bash.bashrc /usr/share/man/man1/bash.1.gz</pre>
 <br>
@@ -29,7 +28,7 @@ The info command shows helpful information about most Bash commands. For a short
 <pre>$ bash --help </pre>
 Both *info and --help* show useful command options and syntax.
 
-**3. sudo** <br>
+**3. <a id="sudo">sudo</a>** <br>
 Some commands need to be executed with SuperUser or root authority. If you are not logged in as root user on a Unix/Linux/Apple OSX/etc. machine, use *sudo* followed by the command you want to be executed as root user.
 <pre>$ sudo ifconfig</pre>
 
