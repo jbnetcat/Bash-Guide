@@ -1,5 +1,5 @@
 ﻿### Introduction
-The acronym **BASH** stands for: *Bourne Again Shell,* which is a *command interpreter* based on its predecessor, the *Bourne* shell.  This environment allows you to interact with your OS via commands, and normally runs inside your terminal, but you can also run a Bash/Shell script as a standalone executable. This guide covers some very useful Bash commands for WhiteHatters.
+The <a id="top">acronym</a> **BASH** stands for: *Bourne Again Shell,* which is a *command interpreter* based on its predecessor, the *Bourne* shell.  This environment allows you to interact with your OS via commands, and normally runs inside your terminal, but you can also run a Bash/Shell script as a standalone executable. This guide covers some very useful Bash commands for WhiteHatters.
 
 ### Quick Guide References
 <table style="width:65%">
@@ -205,6 +205,7 @@ $ root</pre>
 
 ## Special Characters
 These are some of the many special characters that can be used with commands in the Bash terminal/command prompt.<br>
+
 **<a id="tilde">~ Tilde</a>**<br>
 The tilde represents the home directory. When followed by a (/), or used alone it means the current user's home directory.
 <pre>$ cd ~</pre>
@@ -275,4 +276,6 @@ Networking statistics, prints network connections, routing tables, masquerade co
 Ubuntu's default firewall config tool is ufw: uncomplicated firewall. It is disabled by default and was developed to ease iptables firewall configuration. To turn UFW on with the default set of rules:
 <pre>$ sudo ufw enable</pre>
 
-This guide is a work in progress and is in no way complete. The commands here are only the very tip of the iceberg when it comes to the *Bash* terminal's capabilities. More commands to come as this guide continues to be updated.
+This guide is a work in progress and is in no way complete. The commands here are only the very tip of the iceberg when it comes to the *Bash* terminal's capabilities. More commands to come as this guide continues to be updated.<br>
+
+Return to <a href="#top">Top</a>.
