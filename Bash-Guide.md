@@ -2,14 +2,14 @@
 The acronym **BASH** stands for: *Bourne Again Shell,* which is a *command interpreter* based on its predecessor, the *Bourne* shell.  This environment allows you to interact with your OS via commands, and normally runs inside your terminal, but you can also run a Bash/Shell script as a standalone executable. This guide covers some very useful Bash commands for WhiteHatters.
 
 ### Quick Guide References
-<table>
+<table style="width:65%">
 <tr><th colspan="5">Helpful Commands</th></tr>
 <tr><td><a href="#whatis">whatis</a></td>
 <td><a href="#whereis">whereis</a></td>
 <td><a href="#man">man</a></td>
 <td><a href="#info">info/help</a></td>
 <td><a href="#sudo">sudo</a></td></tr> 
-<table>
+<table style="width:65%">
 <tr><th colspan="5">Local Discovery</th></tr>
 <tr><td><a href="#whoami">whoami</a></td>
 <td><a href="#pwd">pwd</a></td>
@@ -17,7 +17,7 @@ The acronym **BASH** stands for: *Bourne Again Shell,* which is a *command inter
 <td><a href="#locate">locate</a></td>
 <td><a href="#file">file</a></td></tr>
 </table>
-<table>
+<table style="width:65%">
 <tr><th colspan="4">Files and Directories</th></tr>
 <tr><td><a href="#cd">cd</a></td>
 <td><a href="#mkdir">mkdir</a></td>
@@ -31,7 +31,7 @@ The acronym **BASH** stands for: *Bourne Again Shell,* which is a *command inter
 <td><a href="#head">head</a></td>
 <td><a href="#tail">tail</a></td></tr>
 </table>
-<table>
+<table style="width:65%">
 <tr><th colspan="3">Utilities & Programs</th></tr>
 <tr><td><a href="#echo">echo</a></td>
 <td><a href="#md5sum">md5sum</a></td>
@@ -42,6 +42,25 @@ The acronym **BASH** stands for: *Bourne Again Shell,* which is a *command inter
 <tr><td><a href="#rsync">rsync</a></td>
 <td><a href="#xxd">xxd</a></td>
 <td><a href="#history">history</a></td></tr>
+</table>
+<table style="width:65%">
+<tr><th colspan="4">Networking Commands & Special Characters</th></tr>
+<tr><td><a href="#tilde">(~) Tilde & (|) Pipe</a></td>
+<td><a href="#special">Special Char(s)</a></td>
+<td><a href="#host">host</a></td>
+<td><a href="#dig">dig</a></td></tr>
+<tr><td><a href="#whois">whois</a></td>
+<td><a href="#tcpdump">tcpdump</a></td>
+<td><a href="#ifconfig">ifconfig && iwconfig</a></td>
+<td><a href="#ifup">ifup && ifdown</a></td></tr>
+<tr><td><a href="#ping">ping</a></td>
+<td><a href="#arping ">arping </a></td>
+<td><a href="#nc">nc</a></td>
+<td><a href="#nmap">nmap</a></td></tr>
+<tr><td><a href="#dhclient">dhclient</a></td>
+<td><a href="#nmcli">nmcli</a></td>
+<td><a href="#netstat">netstat</a></td>
+<td><a href="#ufw">ufw</a></td></tr>
 </table>
 
 Many Bash commands are intuitive, for example you could fire up a terminal and ask: **<a id="whatis">whatis</a>**
@@ -59,7 +78,7 @@ It is very important to learn how to find help when using terminal commands. Mos
 <pre>$ man man</pre>
 Man displays the manual page entry for a given command.<br>
 
-**2. <a id="info">info,</a> -h, and --help** <br>
+**2. <a id="info">info</a>, -h, and --help** <br>
 The info command shows helpful information about most Bash commands. For a shorter version of the available help pages, try the command name followed by either *-h or --help.*
 <pre>$ info commandName</pre>
 
@@ -185,16 +204,16 @@ $ root</pre>
 ### Networking Commands and Special Characters.
 
 ## Special Characters
-These are some of the many special characters that can be used with commands in the Bash terminal/command prompt.
-**~ Tilde**<br>
+These are some of the many special characters that can be used with commands in the Bash terminal/command prompt.<br>
+**<a id="tilde">~ Tilde</a>**<br>
 The tilde represents the home directory. When followed by a (/), or used alone it means the current user's home directory.
 <pre>$ cd ~</pre>
-**| Pipe**<br>
+**<a id="tilde">| Pipe</a>**<br>
 The true power of Bash/Shell commands is realized when you chain multiple commands together. The output of one command becomes the input of another command, for as many commands as you can chain together.
 <p>The following command says: cat display access.log, and pipe the output to cut -d: delimit or separate on tab/blank space, -f: display field 1, pipe that output to grep $this_Ip_addr, then pipe the output to sort, which -u: uniquely sorts the results by -rn: showing the most occurring line in access.log with $thisIP in descending order.</p>
 <pre>$ cat access.log | cut -d " " -f 1 | grep '208.68.234.99' | sort -urn</pre>
 
-**$() Expansion, (&&) And, (;) End command, (#) Comment**<br>
+**<a id="special">$() Expansion, (&&) And, (;) End command, (#) Comment</a>**<br>
 The expansion characters allow you to expand parameters, substitute commands or use arithmetic expressions. Two ampersands represent and, which means you can execute more than one command, but be sure to end long statements or multiple commands with (;) semi-colon. Finally, the (#) hash tag is used for a line of comments, this line is ignored by the bash interpreter.<br>
 The First command uses a bash for statement, to loop through a $(sequence) of numbers, 1-254 to be exact, and do a ping -c: count 1, piping the output to grep to only display alive nodes. This is a quick way for a pentester to check what nodes are alive on this network. The first node pinged is 192.x.x.1.
 <pre>$ for ip in $(seq 1 254); do
@@ -204,55 +223,55 @@ done;</pre>
 <pre>$ sudo apt update && apt list --upgradable -va && sudo apt upgrade;</pre>
 This is self explanatory, it says: sudo do aptitude check my repo(s) in: /etc/apt/sources.list for updates, next list all upgradeable packages -v: verbosely, tell me something, while -a: listing all package versions, then perform the upgrade as sudo.
 
-**1. host** <br>
+**1. <a id="host">host</a>** <br>
 DNS lookup utility. Options: -t: querytype, -l: zone transfer by listing all known hosts in domain. The first command performs forward lookup. Second command does reverse lookup and restricts the -t: Query-type, to ns: Name Server records.
 <pre>$host www.cisco.com</pre>
 <pre>$ host -t ns 22.23.144.81 </pre>
- **2. dig** <br>
+ **2. <a id="dig">dig</a>** <br>
 Dig for Domain Name Server records. Can also use batch mode to read lookups from a file. Without any options Dig performs a forward lookup, and by default returning IPV4 records.
 <pre>$ dig hackthissite.org</pre>
- **3. whois** <br>
+ **3. <a id="whois">whois</a>** <br>
 Whois is a client for the whois directory service. Options: -h: host connect to, -p: port connect to
 <pre>$ whois www.usf.edu</pre>
- **4. tcpdump** <br>
+ **4. <a id="tcpdump">tcpdump</a>** <br>
 A command line alternative to wireshark, tcpdump dumps traffic on a wire. This command says tcpdump -i: interface named wlan0, and -e: print the link-level header/MAC layer address, and the 802.11 wireless protocol information.
 <pre>$  tcpdump -ie wlan0</pre>
-**5. ifconfig && iwconfig** <br>
+**5. <a id="ifconfig">ifconfig && iwconfig</a>** <br>
 Ifconfig is an interface management and configuration utility, It can be used to bring an interface up, set interface metrics, set a network address and other things. Iwconfig is similar, only it is used to set wireless network interfaces.
 <pre>$ ifconfig</pre>
 <pre>$ iwconfig wlan0 down</pre>
-**6. ifup && ifdown** <br>
+**6. <a id="ifup">ifup && ifdown</a>** <br>
 Bring a network interface up or bring it down. Run the commands with -h or --help for more info on options. The first command brings the iface named: eth0 down if it is up, and then brings it up, this is equivalent to a restart of the network iface. The second command brings down several network interfaces at once.
 <pre>$ ifdown eth0 && ifup eth0</pre>
 <pre>$ ifdown eth0 eth1 eth2</pre>
-**7. ping** <br>
+**7. <a id="ping">ping</a>** <br>
 Ping is a well known networking utility used to send Icmp echo requests to Network nodes to test connectivity. Options: -c: count, number of pings, -t: ttl time to live -s: packet-size -4/6: IPV.
 <pre>$ ping 192.168.1.2 -c 4</pre>
-**8. arping** <br>
+**8. <a id="arping">arping</a>** <br>
 Arping is used to send ARP requests to local Network hosts. ARP requests attempt to match OSI level 3 Network/IP addresses with level 2 MAC addresses. 
 <pre>$ arping -i eth1 192.168.2.300</pre>
-**9. nc** <br>
+**9. <a id="nc">nc</a>** <br>
 Netcat is known as the TCP/IP Swiss army knife. Among other things, its mainly used to read/write data across network connections. Nc can act as client or server, listening for a connection or making one and also is a handy port-scanner as well. The first command says: netcat connect to this $IP.Addr -v: verbosely, -n: no DNS queries please, - w: number of seconds timeout for connects -z: zero input/output mode, means don't try to connect just check if the port is open, scan ports 1-50000.
 <pre>$ nc -vn -w 2 192.168.1.5 -z 1-50000</pre>
 <pre>$ nc -nlvp 4444 </pre>
 Netcat, set listener on local port 4444. -n: No DNS, -v: be verbose, and -l: listen for incoming connections.
 
-**10. nmap** <br>
+**10. <a id="nmap">nmap</a>** <br>
 The network mapper is a Port Scanner, Network exploration tool, and active, not passive scanner. Which means nmap scans generate lots traffic so let the pentester beware. You should only run nmap on a machine you own or with the permission of its owner. The first command runs an -A: aggressive scan of the test domain which includes many types of scans such as OS/version detection, additional nmap scripts and traceroute for network hops of each node to name a few. The scan is to be conducted as quickly as possible -T4: fast timing.
 <pre>$ nmap -A -T4 scanme.nmap.org</pre>
 <pre>$ nmap -sn -v -n 10.10.33.1-254 </pre>
 This command tells nmap to perform a ping scan on a range of hosts (10.10.31.1-254), do not perform a Domain Name query of the hosts -n:no DNS, and be -v:verbose about it.
 
-**11. dhclient** <br>
+**11. <a id="dhclient">dhclient</a>** <br>
 DHCP configuration is handled by dhclient on Linux/Unix machines. It can be used to view your IP address lease(s), and also to release or renew IPv4/IPv6 addresses. To see the dhclient conversation with the dhcp server just try: -v verbose. Other options: -r: release IP addy, -4: renew IPv4 address.
 <pre>$ dhclient -v</pre>
-**12. nmcli** <br>
+**12. <a id="nmcli">nmcli</a>** <br>
 The network manager command line utility can be used to show networking information. Here we tell it to show network devices, and pipe the output to grep any line containing the word DNS in it, which is equivalent to the IP address of your DNS server.
 <pre>$ nmcli dev show | grep DNS</pre>
-**13. netstat** <br>
+**13. <a id="netstat">netstat</a>** <br>
 Networking statistics, prints network connections, routing tables, masquerade connections, iface stats, etc. Options: -a: all, -n: show numerical addresses, -t: tcp connections, p: show the PID and name of the program to which each socket belongs.
 <pre>$ netstat -antp</pre>
-**14. ufw** <br>
+**14. <a id="ufw">ufw</a>** <br>
 Ubuntu's default firewall config tool is ufw: uncomplicated firewall. It is disabled by default and was developed to ease iptables firewall configuration. To turn UFW on with the default set of rules:
 <pre>$ sudo ufw enable</pre>
 
