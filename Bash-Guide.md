@@ -1,15 +1,16 @@
 ﻿### Introduction
 The <a id="top">acronym</a> **BASH** stands for: *Bourne Again Shell,* which is a *command interpreter* based on its predecessor, the *Bourne* shell.  This environment allows you to interact with your OS via commands, and normally runs inside your terminal, but you can also run a Bash/Shell script as a standalone executable. This guide covers some very useful Bash commands for WhiteHatters.
 
-### Quick Guide References
-<table style="width:65%">
+### Quick Guide Reference
+<table>
 <tr><th colspan="5">Helpful Commands</th></tr>
 <tr><td><a href="#whatis">whatis</a></td>
 <td><a href="#whereis">whereis</a></td>
 <td><a href="#man">man</a></td>
 <td><a href="#info">info/help</a></td>
 <td><a href="#sudo">sudo</a></td></tr> 
-<table style="width:65%">
+</table>
+<table>
 <tr><th colspan="5">Local Discovery</th></tr>
 <tr><td><a href="#whoami">whoami</a></td>
 <td><a href="#pwd">pwd</a></td>
@@ -17,7 +18,7 @@ The <a id="top">acronym</a> **BASH** stands for: *Bourne Again Shell,* which is 
 <td><a href="#locate">locate</a></td>
 <td><a href="#file">file</a></td></tr>
 </table>
-<table style="width:65%">
+<table>
 <tr><th colspan="4">Files and Directories</th></tr>
 <tr><td><a href="#cd">cd</a></td>
 <td><a href="#mkdir">mkdir</a></td>
@@ -31,7 +32,7 @@ The <a id="top">acronym</a> **BASH** stands for: *Bourne Again Shell,* which is 
 <td><a href="#head">head</a></td>
 <td><a href="#tail">tail</a></td></tr>
 </table>
-<table style="width:65%">
+<table>
 <tr><th colspan="3">Utilities & Programs</th></tr>
 <tr><td><a href="#echo">echo</a></td>
 <td><a href="#md5sum">md5sum</a></td>
@@ -43,7 +44,7 @@ The <a id="top">acronym</a> **BASH** stands for: *Bourne Again Shell,* which is 
 <td><a href="#xxd">xxd</a></td>
 <td><a href="#history">history</a></td></tr>
 </table>
-<table style="width:65%">
+<table>
 <tr><th colspan="4">Networking Commands & Special Characters</th></tr>
 <tr><td><a href="#tilde">(~) Tilde & (|) Pipe</a></td>
 <td><a href="#special">Special Char(s)</a></td>
