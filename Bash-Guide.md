@@ -7,8 +7,10 @@ The <a id="top">acronym</a> **BASH** stands for: *Bourne Again Shell,* which is 
 <tr><td><a href="#whatis">whatis</a></td>
 <td><a href="#whereis">whereis</a></td>
 <td><a href="#man">man</a></td>
-<td><a href="#info">info/help</a></td>
-<td><a href="#sudo">sudo</a></td></tr> 
+<td><a href="#info">info</a></td>
+<td><a href="#info">--help</a></td></tr>
+<tr><td><a href="#sudo">sudo</a></td>
+<td><a href="#top">top</a></td></tr> 
 </table>
 <table>
 <tr><th colspan="5">Local Discovery</th></tr>
@@ -17,6 +19,8 @@ The <a id="top">acronym</a> **BASH** stands for: *Bourne Again Shell,* which is 
 <td><a href="#ls">ls</a></td>
 <td><a href="#locate">locate</a></td>
 <td><a href="#file">file</a></td></tr>
+<tr><td><a href="#df">df</a></td>
+<td><a href="#printenv">printenv</a></td></tr>
 </table>
 <table>
 <tr><th colspan="4">Files and Directories</th></tr>
@@ -83,7 +87,7 @@ Man displays the manual page entry for a given command.<br>
 The info command shows helpful information about most Bash commands. For a shorter version of the available help pages, try the command name followed by either *-h or --help.*
 <pre>$ info commandName</pre>
 
-<pre>$ bash --help </pre>
+<pre>$ chmod --help </pre>
 Both *info and --help* show useful command options and syntax.
 
 **3. <a id="sudo">sudo</a>** <br>
@@ -92,6 +96,11 @@ Some commands need to be executed with SuperUser or root authority. If you are n
 
 SuperUser do this commandName
 <pre>$ sudo su</pre> Sudo switch user, escalate my privileges to SuperUser.
+
+**3. <a id="top">top</a>** <br>
+The top program provides a real-time view of a running system. It can display system summary information as well as a list of processes or threads being managed by the kernel. 
+<pre>$ top</pre>
+
 ### Local Discovery
 **A. <a id="whoami">whoami</a>**<br>
 One of the first things to do is to find out who you are, what permissions you have and what is your current working directory.  Am I logged in as root or just another user?</pre>
@@ -115,9 +124,20 @@ If you are trying to locate a particular file this command works well. It is som
 $ /home/user/Documents/foo.bar</pre>
 
 **E. <a id="file">file</a>**<br>
-In **.nix** environments, file extensions don't tell us much about what kind of file we're dealing with. For instance you could name a file: myfile.mine and make it executable by setting the file's executable bit: *Chmod u+x fileName.* However, you can use *file* followed by the file name to discover the file's type.
+In **Unix/Linux** environments, file extensions don't tell us much about what kind of file we're dealing with. For instance you could name a file: myfile.mine and make it executable by setting the file's executable bit: *Chmod u+x fileName.* However, you can use *file* followed by the file name to discover the file's type.
 <pre>$ file foo.bar
 $ ASCII text</pre>
+
+**F. <a id="df">df</a>**<br>
+This program displays the amount of disk space available on the file system containing each file name argument. Filename is optional.
+<pre>$ df </pre>
+
+**G. <a id="printenv">printenv</a>**<br>
+Printenv prints environment variable values. If no variables are specified, it prints the value of every environment variable. Otherwise, it prints the value of each VARIABLE that is set, and nothing for those that are not set.
+<pre>$ printenv </pre>
+<pre>$ printenv PATH
+$ /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin</pre>
+You can specify the environment variable that you would like to print such as HOME, PATH, USER, etc. Remember to use caps for the variable name, as they are case-sensitive.
 
 ### Files and Directories
 **1. <a id="cd">cd</a>**<br>
